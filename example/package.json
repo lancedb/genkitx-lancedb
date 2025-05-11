@@ -1,0 +1,24 @@
+{
+  "name": "lancedb-test-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "genkit start",
+    "dev": "genkit dev",
+    "flow:run:myTestFlow": "genkit flow:run myTestFlow '{\"query\":\"hello from test\"}' --output-format json"
+  },
+  "dependencies": {
+    "genkit": "1.8.0",
+    "genkitx-lancedb": "0.0.1",
+    "llm-chunk": "^0.0.1",
+    "pdf-parse": "^1.1.1",
+    "zod": "^3.20.0",
+    "@genkit-ai/vertexai" : "1.8.0"
+  },
+  "devDependencies": {
+    "@types/pdf-parse": "^1.1.4",
+    "typescript": "^5.0.0"
+  }
+}
