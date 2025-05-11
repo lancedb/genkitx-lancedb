@@ -44,11 +44,20 @@ genkit start -- tsx --watch src/index.ts
 ```
 
 This'll add LanceDB as a retriever and indexer to the genkit instance. You can see it in the GUI view
+<img width="1710" alt="Screenshot 2025-05-11 at 7 21 05 PM" src="https://github.com/user-attachments/assets/e752f7f4-785b-4797-a11e-72ab06a531b7" />
+
+**Testing retrieval on a sample table**
+Let's see the raw retrieval results
+
+<img width="1710" alt="Screenshot 2025-05-11 at 7 21 05 PM" src="https://github.com/user-attachments/assets/b8d356ed-8421-4790-8fc0-d6af563b9657" />
+On running this query, you'll 5 results fetched from the lancedb table, where each result looks something like this:
+<img width="1417" alt="Screenshot 2025-05-11 at 7 21 18 PM" src="https://github.com/user-attachments/assets/77429525-36e2-4da6-a694-e58c1cf9eb83" />
+
 
 
 ## Creating a custom RAG flow
 
-A RAG flow will consist of a retriever and an indexer.
+Now that we've seen how you can use LanceDB for in a genkit pipeline, let's refine the flow and create a RAG. A RAG flow will consist of an index and a retreiver with its outputs postprocessed an fed into an LLM for final response
 
 ### Creating custom indexer flows
 You can also create custom indexer flows, utilizing more options and features provided by LanceDB.
@@ -109,6 +118,13 @@ export const indexMenu = ai.defineFlow(
   }
 );
 ```
+
+<img width="1316" alt="Screenshot 2025-05-11 at 8 35 56 PM" src="https://github.com/user-attachments/assets/e2a20ce4-d1d0-4fa2-9a84-f2cc26e3a29f" />
+
+In your console, you can see the logs
+
+<img width="511" alt="Screenshot 2025-05-11 at 7 19 14 PM" src="https://github.com/user-attachments/assets/243f26c5-ed38-40b6-b661-002f40f0423a" />
+
 ### Creating custom retriever flows
 You can also create custom retriever flows, utilizing more options and features provided by LanceDB.
 ```ts
@@ -160,3 +176,6 @@ Question: ${input}`,
   }
 );
 ```
+Now using our retrieval flow, we can ask question about the ingsted PDF
+<img width="1306" alt="Screenshot 2025-05-11 at 7 18 45 PM" src="https://github.com/user-attachments/assets/86c66b13-7c12-4d5f-9d81-ae36bfb1c346" />
+
